@@ -1,13 +1,18 @@
 import express from "express";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-const __dirname = dirname(fileURLToPath(import.meta.url));
+import morgan from "morgan";
 
 const app = express();
 const port = 3000;
 
+
+app.use((req,res,next)=>{
+  console.log("Request method: ", req.method);
+  next();
+});
+
+
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
+   res.send("Hello");
 });
 
 app.listen(port, () => {
