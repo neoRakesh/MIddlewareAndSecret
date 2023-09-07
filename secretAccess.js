@@ -22,7 +22,7 @@ function logger(req,res,next){
 app.use(logger)
 
 app.get("/",(req,res)=>{
-    res.sendFile(__dirname + "/public/secretLogin.html")
+    res.sendFile(__dirname + "/public/secretLogin.html");
 })
 
 //checking the log status to access the html files
