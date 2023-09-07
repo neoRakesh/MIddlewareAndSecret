@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 function logger(req,res,next){
   console.log(req.body);
   if(req.body["pswd"]=="ILoveProgramming"){
-      
+
       logStatus=true;
   }
   next();
@@ -25,20 +25,20 @@ app.get("/",(req,res)=>{
     res.sendFile(__dirname + "/public/secretLogin.html")
 })
 
-app.post("/check",(req,res)=>{
-   
+//checking the log status to access the html files
+app.post("/check", (req, res) => {
 
-    if(logStatus)
-{
-    res.sendFile(__dirname + "/public/secretAccess.html");
-}
-else{
-    res.sendFile(__dirname + "/public/secretLogin.html");
-}
-  
+
+    if (logStatus) {
+        res.sendFile(__dirname + "/public/secretAccess.html");
+    }
+    else {
+        res.sendFile(__dirname + "/public/secretLogin.html");
+    }
+
 });
 
-//checking the log status to access the html files
+
 
 
 
